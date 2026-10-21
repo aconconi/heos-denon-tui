@@ -1,0 +1,19 @@
+[project]
+name = "heos-tui"
+version = "0.1.0"
+description = "Terminal UI for Denon HEOS devices, built on pyheos"
+requires-python = ">=3.11"
+dependencies = ["pyheos", "denonavr", "heos-discovery", "textual>=0.80"]
+
+[project.scripts]
+heos-tui = "heos_tui.main:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/heos_tui"]
+
+[tool.uv.sources]
+heos-discovery = { workspace = true }
